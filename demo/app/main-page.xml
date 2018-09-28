@@ -1,0 +1,12 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
+  xmlns:ui="nativescript-nfc-advanced">
+  <StackLayout class="p-20">
+    <Label text="{{ 'NFC available: ' + (available ? 'Yes' : 'No') }}" class="t-20 text-center c-black" textWrap="true"/>
+    <Label text="{{ 'NFC enabled: ' + (enabled ? 'Yes' : 'No') }}" class="t-20 text-center c-black" textWrap="true"/>
+    <Label text="{{ 'Tag ID: ' + id }}" class="t-20 text-center c-black" textWrap="true"/>
+    <Label text="{{ 'TechList: ' + techList }}" class="t-20 text-center c-black" textWrap="true"/>
+    <Label text="{{ 'Tag Type: ' + tagType }}" class="t-20 text-center c-black" textWrap="true"/>
+    <Label text="{{ 'Value: ' + value }}" class="t-20 text-center c-black" textWrap="true"/>
+    <Label text="{{ 'Last transaction: ' + lastTransaction }}" class="t-20 text-center c-black" textWrap="true"/>
+  </StackLayout>
+</Page>
