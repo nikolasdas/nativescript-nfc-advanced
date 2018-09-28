@@ -125,37 +125,37 @@ class NfcIntentHandler {
 
   private handleMifareClassic(tag: android.nfc.Tag): [MifareClassicTagData, android.nfc.tech.TagTechnology] {
     let mifareClassicTag = android.nfc.tech.MifareClassic.get(tag);
-    let tagType = 'MIFARE';
+    let tagType = 'MIFARE Classic';
+    let tagSubtype;
     switch (mifareClassicTag.getType()) {
       case android.nfc.tech.MifareClassic.TYPE_CLASSIC:
-        tagType += ' Classic';
         break;
       case android.nfc.tech.MifareClassic.TYPE_PLUS:
-        tagType += ' Plus';
+        tagSubtype = 'Plus';
         break;
       case android.nfc.tech.MifareClassic.TYPE_PRO:
-        tagType += ' Pro';
+        tagSubtype = 'Pro';
         break;
     }
     let size = mifareClassicTag.getSize();
     let sectorCount = mifareClassicTag.getSectorCount();
     let blockCount = mifareClassicTag.getBlockCount();
 
-    return [{ id: null, techList: null, tagType, blockCount, sectorCount, size }, mifareClassicTag];
+    return [{ id: null, techList: null, tagType, tagSubtype, blockCount, sectorCount, size }, mifareClassicTag];
   }
 
   private handleMifareUltralight(tag: android.nfc.Tag): [MifareUltralightTagData, android.nfc.tech.TagTechnology] {
     let mifareUlTag = android.nfc.tech.MifareUltralight.get(tag);
-    let tagType = 'MIFARE';
+    let tagType = 'MIFARE Ultralight';
+    let tagSubtype;
     switch (mifareUlTag.getType()) {
       case android.nfc.tech.MifareUltralight.TYPE_ULTRALIGHT:
-        tagType += ' Ultralight';
         break;
       case android.nfc.tech.MifareUltralight.TYPE_ULTRALIGHT_C:
-        tagType += ' Ultralight C';
+        tagSubtype = 'C';
         break;
     }
-    return [{ id: null, techList: null, tagType }, mifareUlTag];
+    return [{ id: null, techList: null, tagType, tagSubtype }, mifareUlTag];
   }
 
   private handleDesfire(tag: android.nfc.Tag): [DesfireTagData, android.nfc.tech.TagTechnology] {

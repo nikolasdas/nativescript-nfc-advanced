@@ -2,6 +2,7 @@ import { Utils } from './../utils';
 
 export abstract class DesfireFile {
   public fileType: number;
+  public fileTypeName: string;
   public commSetting: number;
   public accessRights: Array<number>;
 
@@ -13,6 +14,7 @@ export abstract class DesfireFile {
 
   constructor(stream: java.io.ByteArrayInputStream) {
     this.fileType = Utils.byte(stream.read());
+    this.fileTypeName = DesfireFile.getFileTypeName(this.fileType);
     this.commSetting = Utils.byte(stream.read());
     let buffer = Array.create('byte', 2);
     stream.read(buffer, 0, buffer.length);
@@ -20,11 +22,7 @@ export abstract class DesfireFile {
   }
 
   asObject(): object {
-    return {
-      fileType: this.fileType,
-      commSetting: this.commSetting,
-      accessRights: this.accessRights
-    };
+    return {};
   }
 
   static create(data: native.Array<number>): DesfireFile {
@@ -78,12 +76,7 @@ export class DesfireStandardFile extends DesfireFile {
   }
 
   asObject(): object {
-    return {
-      fileType: this.fileType,
-      commSetting: this.commSetting,
-      accessRights: this.accessRights,
-      fileSize: this.fileSize
-    };
+    return { fileSize: this.fileSize };
   }
 }
 
@@ -101,9 +94,6 @@ export class DesfireRecordFile extends DesfireFile {
 
   asObject(): object {
     return {
-      fileType: this.fileType,
-      commSetting: this.commSetting,
-      accessRights: this.accessRights,
       recordSize: this.recordSize,
       maxRecords: this.maxRecords,
       curRecords: this.curRecords
@@ -129,9 +119,6 @@ export class DesfireValueFile extends DesfireFile {
 
   asObject(): object {
     return {
-      fileType: this.fileType,
-      commSetting: this.commSetting,
-      accessRights: this.accessRights,
       lowerLimit: this.lowerLimit,
       upperLimit: this.upperLimit,
       value: this.value,

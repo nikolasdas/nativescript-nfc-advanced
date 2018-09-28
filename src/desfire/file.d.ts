@@ -1,5 +1,6 @@
 export declare abstract class DesfireFile {
     fileType: number;
+    fileTypeName: string;
     commSetting: number;
     accessRights: Array<number>;
     private static STANDARD_DATA_FILE;

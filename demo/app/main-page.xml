@@ -1,12 +1,14 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
   xmlns:ui="nativescript-nfc-advanced">
-  <StackLayout class="p-20">
-    <Label text="{{ 'NFC available: ' + (available ? 'Yes' : 'No') }}" class="t-20 text-center c-black" textWrap="true"/>
-    <Label text="{{ 'NFC enabled: ' + (enabled ? 'Yes' : 'No') }}" class="t-20 text-center c-black" textWrap="true"/>
-    <Label text="{{ 'Tag ID: ' + id }}" class="t-20 text-center c-black" textWrap="true"/>
-    <Label text="{{ 'TechList: ' + techList }}" class="t-20 text-center c-black" textWrap="true"/>
-    <Label text="{{ 'Tag Type: ' + tagType }}" class="t-20 text-center c-black" textWrap="true"/>
-    <Label text="{{ 'Value: ' + value }}" class="t-20 text-center c-black" textWrap="true"/>
-    <Label text="{{ 'Last transaction: ' + lastTransaction }}" class="t-20 text-center c-black" textWrap="true"/>
+  <ActionBar class="action-bar" title="NFC-Advanced Test"/>
+  <StackLayout>
+    <Label class="body" text="{{ 'NFC available: ' + (available ? 'Yes' : 'No') }}" textWrap="true"/>
+    <Label class="body" text="{{ 'NFC enabled: ' + (enabled ? 'Yes' : 'No') }}" textWrap="true"/>
+    <Label class="body" text="{{ 'Tag ID: ' + id }}" textWrap="true" visibility="{{ id == '' ? 'hidden' : 'visible' }}"/>
+    <Label class="body" text="{{ 'TechList: ' + techList }}" textWrap="true" visibility="{{ techList == '' ? 'hidden' : 'visible' }}"/>
+    <Label class="body" text="{{ 'Tag Type: ' + tagType }}" textWrap="true" visibility="{{ tagType == '' ? 'hidden' : 'visible' }}"/>
+    <ScrollView>
+      <Label class="body" text="{{ output }}" textWrap="true" visibility="{{ output == '' ? 'hidden' : 'visible' }}"/>
+    </ScrollView>
   </StackLayout>
 </Page>

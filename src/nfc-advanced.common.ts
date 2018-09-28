@@ -25,6 +25,7 @@ export interface NfcTagData {
   id: string;
   techList: Array<string>;
   tagType: string;
+  tagSubtype?: string;
 }
 
 export interface NfcNdefRecord {

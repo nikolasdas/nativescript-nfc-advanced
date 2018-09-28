@@ -63,12 +63,19 @@ export abstract class Utils {
     return ret;
   }
 
-  static arrayToString(array: any[] | native.Array<any>): string {
+  static arrayToString(array: any[] | native.Array<any>, fancy: boolean = false): string {
     if (array == null)
       return null;
-    let s = '';
+    let s = fancy ? '[ ' : '';
     for (let i = 0; i < array.length; i++) {
       s += array[i];
+      if (fancy)
+        s += ', ';
+    } 
+    if (fancy) {
+      if (array.length > 0)
+        s = s.slice(0, -2);
+      s += ' ] (' + array.length + ')';
     }
     return s;
   }
@@ -80,18 +87,6 @@ export abstract class Utils {
       value += (byteArray[i] & 0x000000FF) << shift;
     }
     return value;
-  }
-
-  static printArray(array: any[] | native.Array<any>): string {
-    if (array == null)
-      return null;
-    let s = '[ ';
-    for (let i = 0; i < array.length; i++) {
-      s += array[i] + ', ';
-    }
-    if (array.length > 0)
-      s = s.slice(0, -2);
-    return s + ' ] (' + array.length + ')';
   }
 
   static reverseArray(array: any[]): any[];

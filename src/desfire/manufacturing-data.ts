@@ -54,17 +54,17 @@ export class DesfireManufacturingData {
 
   toString(): string {
     return 'Hardware info:\n'+
-           '- VendorID: ' + this.hwVendorID + '\n' + 
-           '- Type/subtype: ' + Utils.toHex([this.hwType, this.hwSubType], { prefix: true, digits: 2 }).join('/') + '\n' + 
-           '- Version: ' + this.hwMajorVersion + '.' + this.hwMinorVersion + '\n' + 
-           '- Storage size: ' + this.hwStorageSize + '\n' + 
-           '- Protocol: ' + this.hwProtocol + '\n' + 
+           '    VendorID: ' + this.hwVendorID + '\n' + 
+           '    Type/subtype: ' + Utils.toHex([this.hwType, this.hwSubType], { prefix: true, digits: 2 }).join('/') + '\n' + 
+           '    Version: ' + this.hwMajorVersion + '.' + this.hwMinorVersion + '\n' + 
+           '    Storage size: ' + this.hwStorageSize + '\n' + 
+           '    Protocol: ' + this.hwProtocol + '\n' + 
            'Software info:\n' +
-           '- VendorID: ' + this.swVendorID + '\n' + 
-           '- Type/subtype: ' + Utils.toHex([this.swType, this.swSubType], { prefix: true, digits: 2 }).join('/') + '\n' + 
-           '- Version: ' + this.swMajorVersion + '.' + this.swMinorVersion + '\n' + 
-           '- Storage size: ' + this.swStorageSize + '\n' + 
-           '- Protocol: ' + this.swProtocol + '\n' + 
+           '    VendorID: ' + this.swVendorID + '\n' + 
+           '    Type/subtype: ' + Utils.toHex([this.swType, this.swSubType], { prefix: true, digits: 2 }).join('/') + '\n' + 
+           '    Version: ' + this.swMajorVersion + '.' + this.swMinorVersion + '\n' + 
+           '    Storage size: ' + this.swStorageSize + '\n' + 
+           '    Protocol: ' + this.swProtocol + '\n' + 
            'uid: ' + this.uid + '\n' + 
            'Batch no: ' + this.batchNo + '\n' + 
            'Production date: week ' + this.weekProd + ', ' + this.yearProd
